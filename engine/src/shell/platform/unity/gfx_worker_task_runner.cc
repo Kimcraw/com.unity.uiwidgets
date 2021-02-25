@@ -20,8 +20,8 @@ GfxWorkerTaskRunner::GfxWorkerTaskRunner(std::thread::id gfx_worker_thread_id,
 GfxWorkerTaskRunner::~GfxWorkerTaskRunner() {
   // drain pending tasks.
   fml::AutoResetWaitableEvent latch;
-  UIWidgetsSystem::GetInstancePtr()->PostTaskToGfxWorker(
-      [&latch]() -> void { latch.Signal(); });
+  // UIWidgetsSystem::GetInstancePtr()->PostTaskToGfxWorker(
+  //     [&latch]() -> void { latch.Signal(); });
   latch.Wait();
 }
 
@@ -34,10 +34,10 @@ void GfxWorkerTaskRunner::PostTask(UIWidgetsTask uiwidgets_task,
   FML_DCHECK(uiwidgets_target_time_nanos <=
              fml::TimePoint::Now().ToEpochDelta().ToNanoseconds());
 
-  UIWidgetsSystem::GetInstancePtr()->PostTaskToGfxWorker(
-      [&on_task_expired = on_task_expired_, uiwidgets_task]() -> void {
-        on_task_expired(&uiwidgets_task);
-      });
+  // UIWidgetsSystem::GetInstancePtr()->PostTaskToGfxWorker(
+  //     [&on_task_expired = on_task_expired_, uiwidgets_task]() -> void {
+  //       on_task_expired(&uiwidgets_task);
+  //     });
 }
 
 }  // namespace uiwidgets
