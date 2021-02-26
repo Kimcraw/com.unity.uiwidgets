@@ -151,7 +151,7 @@ extern "C" void Dart_TimelineEvent(const char* label, int64_t timestamp0,
                                    intptr_t argument_count,
                                    const char** argument_names,
                                    const char** argument_values) {
-  static int64_t timestamp_begin = timestamp0;
+  // static int64_t timestamp_begin = timestamp0;
 
   // if (timestamp1_or_async_id) {
   //   uiwidgets::UIWidgetsSystem::GetInstancePtr()->printf_console(

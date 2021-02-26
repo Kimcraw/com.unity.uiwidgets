@@ -264,7 +264,7 @@ ParagraphBuilder::~ParagraphBuilder() = default;
 void decodeFontFeatures(uint8_t* font_features_data,
                         int font_features_data_size,
                         txt::FontFeatures& font_features) {
-  uint8_t* byte_data(font_features_data);
+  // uint8_t* byte_data(font_features_data);
   FML_CHECK(font_features_data_size % kBytesPerFontFeature == 0);
 
   size_t feature_count = font_features_data_size / kBytesPerFontFeature;

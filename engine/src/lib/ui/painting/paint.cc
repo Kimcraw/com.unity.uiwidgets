@@ -63,7 +63,7 @@ Paint::Paint(void** paint_objects, uint8_t* paint_data) {
   is_null_ = paint_data == nullptr;
   if (is_null_) return;
 
-  Mono_Handle values[kObjectCount];
+  // Mono_Handle values[kObjectCount];
   if (paint_objects != nullptr) {
     auto shader = static_cast<Shader*>(paint_objects[kShaderIndex]);
     if (shader) {
